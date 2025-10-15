@@ -29,7 +29,7 @@ for (let page = pages; page > 2; page--) {
   )
 
   subPage.body.querySelectorAll('.section-container .section-content .article-list .article-list-item a').forEach((element) => {
-    snapshots.push({url: element.getAttribute('href')!, title: element.innerHTML.split(' - ')[1].trim()})
+    snapshots.push({url: element.getAttribute('href')!, title: element.innerHTML})
   })
 }
 
