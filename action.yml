@@ -1,0 +1,35 @@
+# https://docs.github.com/en/actions/sharing-automations/creating-actions/metadata-syntax-for-github-actions
+
+name: 'Minecraft Release Notes'
+description: 'Fetch and parse Minecraft release notes.'
+author: 'Author'
+branding:
+  icon: 'award'
+  color: 'green'
+
+inputs:
+  version:
+    description: |
+      Minecraft version to fetch and parse release notes for.
+
+      Can also be one of `latest-release` or `latest-snapshot`.
+      
+    required: false
+    default: 'latest-release'
+
+outputs:
+  html:
+    description: |
+      Release notes formatted as HTML.
+
+  text:
+    description: |
+      Release notes formatted as normal text.
+      
+  json:
+    description: |
+      Release notes formatted as JSON.
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
