@@ -51,6 +51,7 @@
   },
   "imports": {
     "@actions/core": "npm:@actions/core@^1.11.1",
+    "@b-fuze/deno-dom": "jsr:@b-fuze/deno-dom@^0.1.56",
     "@std/assert": "jsr:@std/assert@^1.0.15"
   }
 }
