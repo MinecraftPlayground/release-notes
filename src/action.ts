@@ -15,7 +15,7 @@ const document = new dom.DOMParser().parseFromString(
   'text/html'
 )
 
-console.log('last_page:', new URL(document.body.querySelector('.section-container .section-content .pagination .pagination-last a')?.attributes.getNamedItem('href')?.value!).searchParams.get('page'))
+console.log('last_page:', new URL(document.body.querySelector('.section-container .section-content .pagination .pagination-last a')?.attributes.getNamedItem('href')?.value!, 'https://feedback.minecraft.net').searchParams.get('page'))
 console.log('items:', document.body.querySelectorAll('.section-container .section-content .article-list .article-list-item a'))
 
 // https://feedback.minecraft.net/hc/en-us/sections/360002267532-Snapshot-Information-and-Changelogs
