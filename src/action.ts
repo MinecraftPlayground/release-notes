@@ -20,6 +20,8 @@ const pages = parseInt(new URL(document.body.querySelector('.section-container .
 
 console.log('last_page:', pages)
 
+const snapshots : {url : string, title : string}[] = []
+
 for (let page = pages; page > 2; page--) {
   const subPage = parser.parseFromString(await fetch(`https://feedback.minecraft.net/hc/en-us/sections/360002267532-Snapshot-Information-and-Changelogs?page=${page}`, {redirect: 'follow'})
     .then(response => response.text()),
@@ -27,10 +29,11 @@ for (let page = pages; page > 2; page--) {
   )
 
   subPage.body.querySelectorAll('.section-container .section-content .article-list .article-list-item a').forEach((element) => {
-    console.log(element.outerHTML)
+    snapshots.push({url: element.getAttribute('href')!, title: element.innerHTML})
   })
 }
 
+console.log(snapshots)
 
 
 // https://feedback.minecraft.net/hc/en-us/sections/360002267532-Snapshot-Information-and-Changelogs
