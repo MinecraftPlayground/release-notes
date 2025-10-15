@@ -37,7 +37,8 @@
         "guard-for-in",
         "no-eval",
         "no-sparse-arrays",
-        "prefer-ascii"
+        "prefer-ascii",
+        "verbatim-module-syntax"
       ],
       "exclude": [
         "no-inferrable-types"
@@ -49,7 +50,8 @@
     "lineWidth": 120
   },
   "imports": {
-    "@actions/core": "npm:@actions/core@^1.11.1"
+    "@actions/core": "npm:@actions/core@^1.11.1",
+    "@std/assert": "jsr:@std/assert@^1.0.15"
   }
 }
 
