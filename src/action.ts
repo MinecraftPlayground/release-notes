@@ -9,20 +9,29 @@ actionsCore.setOutput('html', '<h1>HTML<h1>');
 actionsCore.setOutput('text', '<h1>Text<h1>');
 actionsCore.setOutput('json', JSON.stringify({author: "Author"}));
 
-const document = new dom.DOMParser().parseFromString(
+const parser = new dom.DOMParser()
+const document = parser.parseFromString(
   await fetch('https://feedback.minecraft.net/hc/en-us/sections/360002267532-Snapshot-Information-and-Changelogs', {redirect: 'follow'})
     .then(response => response.text()),
   'text/html'
 )
 
-const pages = new URL(document.body.querySelector('.section-container .section-content .pagination .pagination-last a')?.getAttribute('href')!, 'https://feedback.minecraft.net').searchParams.get('page')
+const pages = parseInt(new URL(document.body.querySelector('.section-container .section-content .pagination .pagination-last a')?.getAttribute('href')!, 'https://feedback.minecraft.net').searchParams.get('page')!)
 
-console.log(document.body.querySelector('.section-container .section-content .pagination .pagination-last a')?.getAttribute('href'))
 console.log('last_page:', pages)
 
-document.body.querySelectorAll('.section-container .section-content .article-list .article-list-item a').forEach((element) => {
-  console.log(element.innerHTML)
-})
+for (let page = pages; page > 2; page--) {
+  const subPage = parser.parseFromString(await fetch(`https://feedback.minecraft.net/hc/en-us/sections/360002267532-Snapshot-Information-and-Changelogs?page=${page}`)
+    .then(response => response.text()),
+    'text/html'
+  )
+
+  subPage.body.querySelectorAll('.section-container .section-content .article-list .article-list-item a').forEach((element) => {
+    console.log(element.outerHTML)
+  })
+}
+
+
 
 // https://feedback.minecraft.net/hc/en-us/sections/360002267532-Snapshot-Information-and-Changelogs
 // https://feedback.minecraft.net/hc/en-us/sections/360001186971-Release-Changelogs
