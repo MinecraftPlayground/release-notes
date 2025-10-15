@@ -15,8 +15,9 @@ const document = new dom.DOMParser().parseFromString(
   'text/html'
 )
 
-const pages = new URL(document.body.querySelector('.section-container .section-content .pagination .pagination-last a')?.attributes.getNamedItem('href')?.value!, 'https://feedback.minecraft.net').searchParams.get('page')
+const pages = new URL(document.body.querySelector('.section-container .section-content .pagination .pagination-last a')?.getAttribute('href')!, 'https://feedback.minecraft.net').searchParams.get('page')
 
+console.log(document.body.querySelector('.section-container .section-content .pagination .pagination-last a')?.getAttribute('href'))
 console.log('last_page:', pages)
 
 document.body.querySelectorAll('.section-container .section-content .article-list .article-list-item a').forEach((element) => {
