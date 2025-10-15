@@ -21,7 +21,7 @@ const pages = parseInt(new URL(document.body.querySelector('.section-container .
 console.log('last_page:', pages)
 
 for (let page = pages; page > 2; page--) {
-  const subPage = parser.parseFromString(await fetch(`https://feedback.minecraft.net/hc/en-us/sections/360002267532-Snapshot-Information-and-Changelogs?page=${page}`)
+  const subPage = parser.parseFromString(await fetch(`https://feedback.minecraft.net/hc/en-us/sections/360002267532-Snapshot-Information-and-Changelogs?page=${page}`, {redirect: 'follow'})
     .then(response => response.text()),
     'text/html'
   )
