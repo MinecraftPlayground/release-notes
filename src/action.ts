@@ -15,7 +15,7 @@ const document = new dom.DOMParser().parseFromString(
   'text/html'
 )
 
-console.log(document.textContent)
+console.log(document.body.innerHTML)
 
 // https://feedback.minecraft.net/hc/en-us/sections/360002267532-Snapshot-Information-and-Changelogs
 // https://feedback.minecraft.net/hc/en-us/sections/360001186971-Release-Changelogs
