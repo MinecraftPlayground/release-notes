@@ -10,7 +10,7 @@ actionsCore.setOutput('text', '<h1>Text<h1>');
 actionsCore.setOutput('json', JSON.stringify({author: "Author"}));
 
 const document = new dom.DOMParser().parseFromString(
-  await fetch('https://feedback.minecraft.net/hc/en-us/sections/360002267532-Snapshot-Information-and-Changelogs')
+  await fetch('https://feedback.minecraft.net/hc/en-us/sections/360002267532-Snapshot-Information-and-Changelogs', {redirect: 'follow'})
     .then(response => response.text()),
   'text/html'
 )
