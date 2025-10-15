@@ -29,6 +29,8 @@ for (let page = pages; page > 2; page--) {
   )
 
   subPage.body.querySelectorAll('.section-container .section-content .article-list .article-list-item a').forEach((element) => {
+    console.log(element.innerHTML);
+    
     snapshots.push({url: element.getAttribute('href')!, title: element.innerHTML.replace(/Minecraft:? Java( Edition)?( -)?( Snapshot )?/, '')})
   })
 }
