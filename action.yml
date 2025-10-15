@@ -2,10 +2,10 @@
 
 name: 'Minecraft Release Notes'
 description: 'Fetch and parse Minecraft release notes.'
-author: 'Author'
+author: 'Mqxx'
 branding:
-  icon: 'award'
-  color: 'green'
+  icon: 'book-open'
+  color: 'gray-dark'
 
 inputs:
   version:
