@@ -1,5 +1,5 @@
 import {assertEquals} from '@std/assert'
-import { versionToUrlPathVersion } from './version_to_url_path.ts';
+import { versionToUrlPathVersion } from './version_to_url_path_version.ts';
 
 Deno.test('Test versionToPathUrl', async (test) => {
   await test.step({
