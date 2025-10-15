@@ -1,12 +1,9 @@
 import actionsCore from '@actions/core';
-import * as yaml from '@std/yaml'
 
-const customTextInput = actionsCore.getInput('custom-text-input');
-const customListInput = yaml.parse(actionsCore.getInput('custom-list-input'));
-const customKeyValueInput = yaml.parse(actionsCore.getInput('custom-key-value-input'));
+const versionInput = actionsCore.getInput('version');
 
-console.log('custom-text-input:', customTextInput);
-console.log('custom-list-input:', customListInput);
-console.log('custom-key-value-input:', customKeyValueInput);
+console.log('version:', versionInput);
 
-actionsCore.setOutput('custom-text-output', 'Test123');
+actionsCore.setOutput('html', '<h1>HTML<h1>');
+actionsCore.setOutput('text', '<h1>Text<h1>');
+actionsCore.setOutput('json', JSON.stringify({author: "Author"}));
