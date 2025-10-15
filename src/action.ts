@@ -29,11 +29,11 @@ for (let page = pages; page > 2; page--) {
   )
 
   subPage.body.querySelectorAll('.section-container .section-content .article-list .article-list-item a').forEach((element) => {
-    snapshots.push({url: element.getAttribute('href')!, title: element.innerHTML.split(' - ')[1]})
+    snapshots.push({url: element.getAttribute('href')!, title: element.innerHTML.split(' - ')[1].trim()})
   })
 }
 
-console.log(snapshots)
+console.log(Deno.inspect(snapshots, {iterableLimit: Infinity}))
 
 
 // https://feedback.minecraft.net/hc/en-us/sections/360002267532-Snapshot-Information-and-Changelogs
